@@ -53,8 +53,10 @@ function subtract(){
 
 //EVENT HANDLING FUNCTIONS
 $(".start").click(function(){
-  timer = setInterval(counter,1000);
-  state = "running";
+  if (state=="stopped" || state=="paused"){
+    timer = setInterval(counter,1000);
+    state = "running";
+  }
 });
 
 $(".stop").click(function(){
