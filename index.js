@@ -58,8 +58,10 @@ $(".start").click(function(){
 });
 
 $(".stop").click(function(){
-  clearInterval(timer);
-  state = "paused";
+  if(state=="running"){
+    clearInterval(timer);
+    state = "paused";
+  }
 });
 
 $(".reset").click(function(){
