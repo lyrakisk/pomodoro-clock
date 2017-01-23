@@ -44,7 +44,7 @@ function add(){
 }
 
 function subtract(){
-  if(state=="stopped" && length>0){
+  if(state=="stopped" && length>1){
     length -=1;
     $(".minutes").html(length);
     $(".length").html(length);
