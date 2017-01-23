@@ -4,8 +4,8 @@ var state = "stopped";
 
 function counter(){
   var seconds = $(".seconds").html();
+  var minutes = $(".minutes").html();
   if (seconds==0){
-    var minutes = $(".minutes").html();
     if(minutes>0){
       minutes -= 1;
       seconds = 59;
@@ -22,6 +22,11 @@ function counter(){
       $(".seconds").html("0"+seconds);
     }
   }
+  if(seconds==0 && minutes==0){
+    clearInterval(timer);
+    state = "stopped";
+    new Audio('clapping.mp3').play()
+  }
 }
 
 function reset(){
@@ -31,7 +36,7 @@ function reset(){
 }
 
 function add(){
-  if(state=="stopped"){
+  if(state=="stopped" && length<59){
     length +=1;
     $(".minutes").html(length);
     $(".length").html(length);
@@ -39,7 +44,7 @@ function add(){
 }
 
 function subtract(){
-  if(state=="stopped"){
+  if(state=="stopped" && length>0){
     length -=1;
     $(".minutes").html(length);
     $(".length").html(length);
