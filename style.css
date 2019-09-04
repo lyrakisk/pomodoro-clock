@@ -1,3 +1,7 @@
-.length{
-  font-weight:bold;
+.length {
+  font-weight: bold;
+}
+
+.fixedWidth {
+  width: 40px;
 }
