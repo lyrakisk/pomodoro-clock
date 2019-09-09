@@ -5,3 +5,7 @@
 .fixedWidth {
   width: 40px;
 }
+
+.unselectable {
+	user-select: none;
+}
