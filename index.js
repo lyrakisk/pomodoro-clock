@@ -12,13 +12,11 @@ function counter(){
       $(".seconds").html(seconds);
       $(".minutes").html(minutes);
     }
-  }
-  else{
+  }  else{
     seconds -= 1;
     if(seconds>=10){
       $(".seconds").html(seconds);
-    }
-    else{
+    } else{
       $(".seconds").html("0"+seconds);
     }
   }
