@@ -68,3 +68,11 @@ $(".reset").click(function(){
   reset();
   state = "stopped";
 });
+
+$(".add").click(function(){
+  add();
+});
+
+$(".subtract").click(function(){
+  subtract();
+});
