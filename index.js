@@ -1,26 +1,29 @@
 var timer;
 var length = 25; //starting pomodoro length
+var max_length = 180;
 var state = "stopped";
 
 function counter(){
   var seconds = $(".seconds").html();
   var minutes = $(".minutes").html();
-  if (seconds==0){
-    if(minutes>0){
+
+  if (seconds == 0){
+    if(minutes > 0){
       minutes -= 1;
       seconds = 59;
       $(".seconds").html(seconds);
       $(".minutes").html(minutes);
     }
   }  else{
-    seconds -= 1;
-    if(seconds>=10){
-      $(".seconds").html(seconds);
-    } else{
-      $(".seconds").html("0"+seconds);
+     seconds -= 1;
+     if(seconds >= 10){
+       $(".seconds").html(seconds);
+    }  else{
+         $(".seconds").html("0"+seconds);
     }
   }
-  if(seconds==0 && minutes==0){
+
+  if(seconds == 0 && minutes == 0){
     clearInterval(timer);
     state = "stopped";
     new Audio('clapping.mp3').play()
@@ -34,31 +37,31 @@ function reset(){
 }
 
 function add(){
-  if(state=="stopped" && length<59){
-    length +=1;
+  if(state=="stopped" && length < max_length){
+    length += 1;
     $(".minutes").html(length);
     $(".length").html(length);
   }
 }
 
 function subtract(){
-  if(state=="stopped" && length>1){
-    length -=1;
+  if(state == "stopped" && length > 1){
+    length -= 1;
     $(".minutes").html(length);
     $(".length").html(length);
   }
 }
 
-//EVENT HANDLING FUNCTIONS
+//EVENT HANDLING 
 $(".start").click(function(){
-  if (state=="stopped" || state=="paused"){
-    timer = setInterval(counter,1000);
+  if (state == "stopped" || state == "paused"){
+    timer = setInterval(counter, 1000);
     state = "running";
   }
 });
 
 $(".stop").click(function(){
-  if(state=="running"){
+  if(state == "running"){
     clearInterval(timer);
     state = "paused";
   }
