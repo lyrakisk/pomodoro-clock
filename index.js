@@ -43,6 +43,7 @@ function reset(){
 function add(){
   if(state=="stopped" && length < max_length){
     length += 1;
+    minutes = length;
     $(".minutes").html(length);
     $(".length").html(length);
   }
